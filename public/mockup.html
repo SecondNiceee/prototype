@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BestDesigner — Мудборд и спецификация дизайна</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      font-family: 'Inter', sans-serif;
+    }
+    .font-display {
+      font-family: 'Playfair Display', serif;
+    }
+    .font-inter {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-[#F5F5F5] min-h-screen">
+  
+  <div class="flex min-h-screen">
+    
+    <!-- Left Panel - Typography & Colors -->
+    <div class="w-[400px] bg-white p-10 flex flex-col justify-between border-r border-gray-200">
+      
+      <!-- Typography Section -->
+      <div class="mb-12">
+        <h2 class="text-xs uppercase tracking-widest text-gray-400 mb-8">Типографика</h2>
+        
+        <div class="mb-10">
+          <div class="font-display text-5xl text-[#0F172A] mb-2" style="font-style: italic;">Inter</div>
+          <div class="font-inter text-3xl font-bold text-[#0F172A]">Inter Bold</div>
+        </div>
+        
+        <div class="space-y-1 text-sm text-gray-500 font-inter">
+          <p class="font-normal">Inter Regular — основной текст</p>
+          <p class="font-medium">Inter Medium — подзаголовки</p>
+          <p class="font-semibold">Inter Semibold — акценты</p>
+          <p class="font-bold">Inter Bold — заголовки</p>
+          <p class="font-extrabold">Inter Extrabold — главные заголовки</p>
+        </div>
+      </div>
+      
+      <!-- Color Palette Section -->
+      <div class="space-y-6">
+        <h2 class="text-xs uppercase tracking-widest text-gray-400 mb-4">Цветовая палитра</h2>
+        
+        <!-- Primary Color -->
+        <div class="flex items-start gap-4">
+          <div class="w-16 h-16 rounded-lg bg-[#0F172A] shadow-lg flex-shrink-0"></div>
+          <div class="text-xs space-y-0.5">
+            <p class="font-semibold text-gray-800">Primary</p>
+            <p class="text-gray-500">HEX #0F172A</p>
+            <p class="text-gray-500">RGB 15, 23, 42</p>
+            <p class="text-gray-500">CMYK 64 45 0 84</p>
+          </div>
+        </div>
+        
+        <!-- Accent Color -->
+        <div class="flex items-start gap-4">
+          <div class="w-16 h-16 rounded-lg bg-[#3B82F6] shadow-lg flex-shrink-0"></div>
+          <div class="text-xs space-y-0.5">
+            <p class="font-semibold text-gray-800">Accent</p>
+            <p class="text-gray-500">HEX #3B82F6</p>
+            <p class="text-gray-500">RGB 59, 130, 246</p>
+            <p class="text-gray-500">CMYK 76 47 0 4</p>
+          </div>
+        </div>
+        
+        <!-- Accent Hover -->
+        <div class="flex items-start gap-4">
+          <div class="w-16 h-16 rounded-lg bg-[#2563EB] shadow-lg flex-shrink-0"></div>
+          <div class="text-xs space-y-0.5">
+            <p class="font-semibold text-gray-800">Accent Hover</p>
+            <p class="text-gray-500">HEX #2563EB</p>
+            <p class="text-gray-500">RGB 37, 99, 235</p>
+            <p class="text-gray-500">CMYK 84 58 0 8</p>
+          </div>
+        </div>
+        
+        <!-- Muted Color -->
+        <div class="flex items-start gap-4">
+          <div class="w-16 h-16 rounded-lg bg-[#64748B] shadow-lg flex-shrink-0"></div>
+          <div class="text-xs space-y-0.5">
+            <p class="font-semibold text-gray-800">Muted</p>
+            <p class="text-gray-500">HEX #64748B</p>
+            <p class="text-gray-500">RGB 100, 116, 139</p>
+            <p class="text-gray-500">CMYK 28 17 0 45</p>
+          </div>
+        </div>
+        
+        <!-- Surface Color -->
+        <div class="flex items-start gap-4">
+          <div class="w-16 h-16 rounded-lg bg-[#F8FAFC] shadow-lg border border-gray-200 flex-shrink-0"></div>
+          <div class="text-xs space-y-0.5">
+            <p class="font-semibold text-gray-800">Surface</p>
+            <p class="text-gray-500">HEX #F8FAFC</p>
+            <p class="text-gray-500">RGB 248, 250, 252</p>
+            <p class="text-gray-500">CMYK 2 1 0 1</p>
+          </div>
+        </div>
+        
+        <!-- Border Color -->
+        <div class="flex items-start gap-4">
+          <div class="w-16 h-16 rounded-lg bg-[#E2E8F0] shadow-lg flex-shrink-0"></div>
+          <div class="text-xs space-y-0.5">
+            <p class="font-semibold text-gray-800">Border</p>
+            <p class="text-gray-500">HEX #E2E8F0</p>
+            <p class="text-gray-500">RGB 226, 232, 240</p>
+            <p class="text-gray-500">CMYK 6 3 0 6</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Project Info -->
+      <div class="mt-12 pt-8 border-t border-gray-200">
+        <div class="text-xs text-gray-400 space-y-1">
+          <p><span class="text-gray-600 font-medium">Проект:</span> BestDesigner</p>
+          <p><span class="text-gray-600 font-medium">Тип:</span> Многостраничный сайт</p>
+          <p><span class="text-gray-600 font-medium">Дата:</span> Май 2026</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Right Panel - Mood Board -->
+    <div class="flex-1 p-6">
+      <h2 class="text-xs uppercase tracking-widest text-gray-400 mb-6">Мудборд / Референсы</h2>
+      
+      <div class="grid grid-cols-3 gap-4 auto-rows-[200px]">
+        
+        <!-- Image 1 - Large -->
+        <div class="col-span-2 row-span-2 rounded-2xl overflow-hidden shadow-lg">
+          <img 
+            src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=800&h=600&fit=crop" 
+            alt="Дизайнер за работой" 
+            class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+          >
+        </div>
+        
+        <!-- Image 2 -->
+        <div class="rounded-2xl overflow-hidden shadow-lg">
+          <img 
+            src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=300&fit=crop" 
+            alt="Дизайн интерфейса" 
+            class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+          >
+        </div>
+        
+        <!-- Image 3 -->
+        <div class="rounded-2xl overflow-hidden shadow-lg">
+          <img 
+            src="https://images.unsplash.com/photo-1542744094-3a31f272c490?w=400&h=300&fit=crop" 
+            alt="Творческий процесс" 
+            class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+          >
+        </div>
+        
+        <!-- Gradient Block -->
+        <div class="rounded-2xl overflow-hidden shadow-lg bg-gradient-to-br from-[#0F172A] to-[#1E293B] flex items-center justify-center">
+          <div class="text-center text-white p-4">
+            <div class="w-12 h-12 bg-[#3B82F6] rounded-xl mx-auto mb-3 flex items-center justify-center">
+              <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+              </svg>
+            </div>
+            <p class="font-bold text-lg">BestDesigner</p>
+            <p class="text-white/60 text-xs mt-1">Логотип</p>
+          </div>
+        </div>
+        
+        <!-- Image 4 -->
+        <div class="rounded-2xl overflow-hidden shadow-lg">
+          <img 
+            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&h=300&fit=crop" 
+            alt="Команда дизайнеров" 
+            class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+          >
+        </div>
+        
+        <!-- Image 5 -->
+        <div class="rounded-2xl overflow-hidden shadow-lg">
+          <img 
+            src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?w=400&h=300&fit=crop" 
+            alt="Рабочее место дизайнера" 
+            class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+          >
+        </div>
+        
+        <!-- UI Elements Preview -->
+        <div class="rounded-2xl overflow-hidden shadow-lg bg-white p-5 flex flex-col justify-center">
+          <p class="text-xs text-gray-400 mb-3">UI элементы</p>
+          <div class="space-y-2">
+            <button class="w-full bg-[#3B82F6] text-white px-4 py-2 rounded-lg text-sm font-medium">
+              Подать заявку
+            </button>
+            <button class="w-full border border-[#E2E8F0] text-[#0F172A] px-4 py-2 rounded-lg text-sm font-medium">
+              Узнать больше
+            </button>
+            <div class="flex gap-2 mt-2">
+              <span class="text-xs bg-[#F8FAFC] text-[#64748B] px-3 py-1 rounded-full border border-[#E2E8F0]">Тег</span>
+              <span class="text-xs bg-blue-50 text-[#3B82F6] px-3 py-1 rounded-full">UX/UI</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Image 6 - Wide -->
+        <div class="col-span-2 rounded-2xl overflow-hidden shadow-lg">
+          <img 
+            src="https://images.unsplash.com/photo-1600132806370-bf17e65e942f?w=800&h=400&fit=crop" 
+            alt="Дизайн студия" 
+            class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+          >
+        </div>
+        
+        <!-- Typography Preview -->
+        <div class="rounded-2xl overflow-hidden shadow-lg bg-[#0F172A] p-5 flex flex-col justify-center text-white">
+          <p class="text-xs text-white/40 mb-2">Заголовки</p>
+          <p class="font-extrabold text-xl leading-tight">Конкурс для дизайнеров</p>
+          <p class="text-white/60 text-xs mt-2 leading-relaxed">Получите грант на реализацию вашего проекта</p>
+        </div>
+        
+        <!-- Image 7 -->
+        <div class="rounded-2xl overflow-hidden shadow-lg">
+          <img 
+            src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=400&h=300&fit=crop" 
+            alt="Графический планшет" 
+            class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+          >
+        </div>
+        
+        <!-- Icons Preview -->
+        <div class="rounded-2xl overflow-hidden shadow-lg bg-white p-5 flex flex-col justify-center">
+          <p class="text-xs text-gray-400 mb-3">Иконки</p>
+          <div class="grid grid-cols-4 gap-3">
+            <div class="w-10 h-10 bg-gradient-to-br from-pink-500 to-purple-500 rounded-xl flex items-center justify-center">
+              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
+              </svg>
+            </div>
+            <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center">
+              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+            </div>
+            <div class="w-10 h-10 bg-gradient-to-br from-orange-500 to-amber-500 rounded-xl flex items-center justify-center">
+              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+              </svg>
+            </div>
+            <div class="w-10 h-10 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center">
+              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Image 8 -->
+        <div class="rounded-2xl overflow-hidden shadow-lg">
+          <img 
+            src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=400&h=300&fit=crop" 
+            alt="Дизайн проект" 
+            class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+          >
+        </div>
+
+      </div>
+    </div>
+    
+  </div>
+  
+</body>
+</html>

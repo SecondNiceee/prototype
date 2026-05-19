@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Подать заявку — BestDesigner</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0F172A',
+            accent: '#3B82F6',
+            'accent-hover': '#2563EB',
+            muted: '#64748B',
+            surface: '#F8FAFC',
+            border: '#E2E8F0',
+            success: '#10B981',
+            error: '#EF4444'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    * {
+      font-family: 'Inter', sans-serif;
+    }
+    .gradient-bg {
+      background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+    }
+    .file-upload {
+      transition: all 0.3s ease;
+    }
+    .file-upload:hover {
+      border-color: #3B82F6;
+      background-color: #F8FAFC;
+    }
+    .file-upload.dragover {
+      border-color: #3B82F6;
+      background-color: #EFF6FF;
+    }
+    .file-item {
+      animation: slideIn 0.3s ease;
+    }
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .input-focus:focus {
+      outline: none;
+      border-color: #3B82F6;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+  </style>
+</head>
+<body class="bg-surface text-primary min-h-screen">
+
+  <!-- Header -->
+  <header class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm border-b border-border z-50">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2">
+        <div class="w-10 h-10 bg-accent rounded-lg flex items-center justify-center">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+          </svg>
+        </div>
+        <span class="text-xl font-bold">BestDesigner</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="index.html#about" class="text-muted hover:text-primary transition-colors">О конкурсе</a>
+        <a href="index.html#stages" class="text-muted hover:text-primary transition-colors">Этапы</a>
+        <a href="index.html#benefits" class="text-muted hover:text-primary transition-colors">Преимущества</a>
+        <a href="apply.html" class="bg-accent text-white px-5 py-2.5 rounded-lg font-medium hover:bg-accent-hover transition-colors">
+          Подать заявку
+        </a>
+      </nav>
+      <button class="md:hidden p-2" onclick="toggleMenu()">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-border">
+      <div class="px-6 py-4 flex flex-col gap-4">
+        <a href="index.html#about" class="text-muted hover:text-primary transition-colors">О конкурсе</a>
+        <a href="index.html#stages" class="text-muted hover:text-primary transition-colors">Этапы</a>
+        <a href="index.html#benefits" class="text-muted hover:text-primary transition-colors">Преимущества</a>
+        <a href="apply.html" class="bg-accent text-white px-5 py-2.5 rounded-lg font-medium text-center hover:bg-accent-hover transition-colors">
+          Подать заявку
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="pt-24 pb-16">
+    <div class="max-w-2xl mx-auto px-6">
+      
+      <!-- Page Header -->
+      <div class="text-center mb-10">
+        <a href="index.html" class="inline-flex items-center gap-2 text-muted hover:text-primary transition-colors mb-6">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+          </svg>
+          Вернуться на главную
+        </a>
+        <h1 class="text-3xl md:text-4xl font-bold mb-3">Подача заявки</h1>
+        <p class="text-muted">Заполните форму для участия в конкурсе грантов для дизайнеров</p>
+      </div>
+
+      <!-- Application Form -->
+      <form id="applicationForm" class="bg-white rounded-2xl border border-border p-8 md:p-10">
+        
+        <!-- Full Name -->
+        <div class="mb-6">
+          <label for="fullName" class="block text-sm font-semibold mb-2">
+            ФИО <span class="text-error">*</span>
+          </label>
+          <input 
+            type="text" 
+            id="fullName" 
+            name="fullName" 
+            required
+            placeholder="Иванов Иван Иванович"
+            class="w-full px-4 py-3 border border-border rounded-xl input-focus transition-all"
+          >
+        </div>
+
+        <!-- Email -->
+        <div class="mb-6">
+          <label for="email" class="block text-sm font-semibold mb-2">
+            Email <span class="text-error">*</span>
+          </label>
+          <input 
+            type="email" 
+            id="email" 
+            name="email" 
+            required
+            placeholder="example@email.com"
+            class="w-full px-4 py-3 border border-border rounded-xl input-focus transition-all"
+          >
+        </div>
+
+        <!-- Competition Direction -->
+        <div class="mb-6">
+          <label for="direction" class="block text-sm font-semibold mb-2">
+            Направление конкурса <span class="text-error">*</span>
+          </label>
+          <select 
+            id="direction" 
+            name="direction" 
+            required
+            class="w-full px-4 py-3 border border-border rounded-xl input-focus transition-all bg-white appearance-none cursor-pointer"
+            style="background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%2364748B%22 stroke-width=%222%22%3E%3Cpath d=%22M6 9l6 6 6-6%22/%3E%3C/svg%3E'); background-repeat: no-repeat; background-position: right 12px center; background-size: 20px;"
+          >
+            <option value="" disabled selected>Выберите направление</option>
+            <option value="graphic">Графический дизайн</option>
+            <option value="uiux">UX/UI дизайн</option>
+            <option value="industrial">Промышленный дизайн</option>
+            <option value="motion">Моушн-дизайн</option>
+            <option value="illustration">Иллюстрация</option>
+            <option value="branding">Брендинг и айдентика</option>
+            <option value="packaging">Дизайн упаковки</option>
+            <option value="other">Другое</option>
+          </select>
+        </div>
+
+        <!-- Project Description -->
+        <div class="mb-6">
+          <label for="description" class="block text-sm font-semibold mb-2">
+            Краткое описание проекта <span class="text-error">*</span>
+          </label>
+          <textarea 
+            id="description" 
+            name="description" 
+            required
+            rows="4"
+            placeholder="Опишите вашу идею или проект, который вы хотите представить на конкурс..."
+            class="w-full px-4 py-3 border border-border rounded-xl input-focus transition-all resize-none"
+          ></textarea>
+          <p class="text-muted text-sm mt-2">Минимум 50 символов</p>
+        </div>
+
+        <!-- File Upload -->
+        <div class="mb-8">
+          <label class="block text-sm font-semibold mb-2">
+            Портфолио / Файлы проекта
+          </label>
+          <div 
+            id="dropZone" 
+            class="file-upload border-2 border-dashed border-border rounded-xl p-8 text-center cursor-pointer"
+            onclick="document.getElementById('fileInput').click()"
+          >
+            <input 
+              type="file" 
+              id="fileInput" 
+              name="files" 
+              multiple 
+              accept=".pdf,.jpg,.jpeg,.png,.zip,.rar"
+              class="hidden"
+              onchange="handleFiles(this.files)"
+            >
+            <div class="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
+              </svg>
+            </div>
+            <p class="text-primary font-medium mb-1">Перетащите файлы сюда</p>
+            <p class="text-muted text-sm mb-3">или нажмите для выбора</p>
+            <p class="text-muted text-xs">PDF, JPG, PNG, ZIP, RAR (макс. 10 МБ на файл)</p>
+          </div>
+          
+          <!-- Uploaded Files List -->
+          <div id="fileList" class="mt-4 space-y-2"></div>
+        </div>
+
+        <!-- Terms Agreement -->
+        <div class="mb-8">
+          <label class="flex items-start gap-3 cursor-pointer">
+            <input 
+              type="checkbox" 
+              id="terms" 
+              name="terms" 
+              required
+              class="w-5 h-5 rounded border-border text-accent mt-0.5 cursor-pointer"
+            >
+            <span class="text-sm text-muted">
+              Я согласен с <a href="#" class="text-accent hover:underline">правилами конкурса</a> и 
+              <a href="#" class="text-accent hover:underline">политикой конфиденциальности</a>
+            </span>
+          </label>
+        </div>
+
+        <!-- Submit Button -->
+        <button 
+          type="submit" 
+          class="w-full bg-accent text-white py-4 rounded-xl font-semibold text-lg hover:bg-accent-hover transition-colors flex items-center justify-center gap-2"
+        >
+          Отправить заявку
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+          </svg>
+        </button>
+
+      </form>
+
+      <!-- Help Section -->
+      <div class="mt-8 text-center">
+        <p class="text-muted text-sm">
+          Возникли вопросы? Напишите нам на 
+          <a href="mailto:support@bestdesigner.ru" class="text-accent hover:underline">support@bestdesigner.ru</a>
+        </p>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Success Modal -->
+  <div id="successModal" class="fixed inset-0 bg-primary/50 backdrop-blur-sm flex items-center justify-center z-50 hidden">
+    <div class="bg-white rounded-2xl p-8 max-w-md mx-4 text-center">
+      <div class="w-20 h-20 bg-success/10 rounded-full flex items-center justify-center mx-auto mb-6">
+        <svg class="w-10 h-10 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+        </svg>
+      </div>
+      <h3 class="text-2xl font-bold mb-3">Заявка отправлена!</h3>
+      <p class="text-muted mb-6">
+        Спасибо за участие! Мы рассмотрим вашу заявку и свяжемся с вами в течение 5 рабочих дней.
+      </p>
+      <a href="index.html" class="inline-block bg-accent text-white px-6 py-3 rounded-xl font-semibold hover:bg-accent-hover transition-colors">
+        Вернуться на главную
+      </a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-primary py-8">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+        <a href="index.html" class="flex items-center gap-2">
+          <div class="w-8 h-8 bg-accent rounded-lg flex items-center justify-center">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+            </svg>
+          </div>
+          <span class="text-lg font-bold text-white">BestDesigner</span>
+        </a>
+        <p class="text-white/40 text-sm">&copy; 2025 BestDesigner. Все права защищены.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    function toggleMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('hidden');
+    }
+
+    // File handling
+    let uploadedFiles = [];
+
+    const dropZone = document.getElementById('dropZone');
+    const fileInput = document.getElementById('fileInput');
+    const fileList = document.getElementById('fileList');
+
+    // Drag and drop events
+    ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+      dropZone.addEventListener(eventName, preventDefaults, false);
+    });
+
+    function preventDefaults(e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+
+    ['dragenter', 'dragover'].forEach(eventName => {
+      dropZone.addEventListener(eventName, () => {
+        dropZone.classList.add('dragover');
+      }, false);
+    });
+
+    ['dragleave', 'drop'].forEach(eventName => {
+      dropZone.addEventListener(eventName, () => {
+        dropZone.classList.remove('dragover');
+      }, false);
+    });
+
+    dropZone.addEventListener('drop', (e) => {
+      const files = e.dataTransfer.files;
+      handleFiles(files);
+    }, false);
+
+    function handleFiles(files) {
+      [...files].forEach(file => {
+        if (file.size > 10 * 1024 * 1024) {
+          alert(`Файл "${file.name}" превышает лимит в 10 МБ`);
+          return;
+        }
+        
+        if (!uploadedFiles.some(f => f.name === file.name)) {
+          uploadedFiles.push(file);
+          renderFileList();
+        }
+      });
+    }
+
+    function renderFileList() {
+      fileList.innerHTML = uploadedFiles.map((file, index) => `
+        <div class="file-item flex items-center justify-between bg-surface p-3 rounded-lg border border-border">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center">
+              ${getFileIcon(file.name)}
+            </div>
+            <div>
+              <p class="text-sm font-medium truncate max-w-[200px]">${file.name}</p>
+              <p class="text-xs text-muted">${formatFileSize(file.size)}</p>
+            </div>
+          </div>
+          <button 
+            type="button"
+            onclick="removeFile(${index})" 
+            class="p-2 text-muted hover:text-error transition-colors"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+      `).join('');
+    }
+
+    function getFileIcon(filename) {
+      const ext = filename.split('.').pop().toLowerCase();
+      if (['jpg', 'jpeg', 'png', 'gif'].includes(ext)) {
+        return '<svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>';
+      } else if (ext === 'pdf') {
+        return '<svg class="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>';
+      } else if (['zip', 'rar'].includes(ext)) {
+        return '<svg class="w-5 h-5 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/></svg>';
+      }
+      return '<svg class="w-5 h-5 text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>';
+    }
+
+    function formatFileSize(bytes) {
+      if (bytes === 0) return '0 Bytes';
+      const k = 1024;
+      const sizes = ['Bytes', 'КБ', 'МБ', 'ГБ'];
+      const i = Math.floor(Math.log(bytes) / Math.log(k));
+      return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+    }
+
+    function removeFile(index) {
+      uploadedFiles.splice(index, 1);
+      renderFileList();
+    }
+
+    // Form submission
+    document.getElementById('applicationForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const description = document.getElementById('description').value;
+      if (description.length < 50) {
+        alert('Описание проекта должно содержать минимум 50 символов');
+        return;
+      }
+
+      // Show success modal
+      document.getElementById('successModal').classList.remove('hidden');
+      
+      // Reset form
+      this.reset();
+      uploadedFiles = [];
+      renderFileList();
+    });
+
+    // Close modal on outside click
+    document.getElementById('successModal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        this.classList.add('hidden');
+      }
+    });
+  </script>
+
+</body>
+</html>
